@@ -1,0 +1,21 @@
+- title "Properties"
+.user= current_user.login if current_user
+%table
+  %tr
+    %th Street name
+    %th Street number
+    %th Street type
+    %th Suburb
+    %th State
+    %th Postcode
+  - for property in @properties
+    %tr
+      %td= h property.street_name
+      %td= h property.street_number
+      %td= h property.street_type
+      %td= h property.suburb
+      %td= h property.state
+      %td= h property.postcode
+      %td= link_to 'Edit', edit_property_path(property)
+
+%p= link_to "New Property", new_property_path

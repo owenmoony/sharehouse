@@ -1,0 +1,15 @@
+one:
+  street_name: MyString
+  street_number: 1
+  street_type: MyString
+  suburb: MyString
+  state: MyString
+  postcode: MyString
+
+two:
+  street_name: MyString
+  street_number: 1
+  street_type: MyString
+  suburb: MyString
+  state: MyString
+  postcode: MyString
