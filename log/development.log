@@ -3575,3 +3575,426 @@ ActionController::UnknownAction (No action responded to index. Actions: create, 
   haml (3.0.23) rails/./lib/sass/plugin/rack.rb:41:in `call'
 
 Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (60.6ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `schema_migrations`[0m
+  [4;36;1mSQL (197.4ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateSessions (20081106072031)
+  [4;35;1mSQL (218.0ms)[0m   [0mCREATE TABLE `sessions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `session_id` varchar(255) NOT NULL, `data` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `sessions`[0m
+  [4;35;1mSQL (100.9ms)[0m   [0mCREATE INDEX `index_sessions_on_session_id` ON `sessions` (`session_id`)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `sessions`[0m
+  [4;35;1mSQL (87.5ms)[0m   [0mCREATE INDEX `index_sessions_on_updated_at` ON `sessions` (`updated_at`)[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081106072031')[0m
+Migrating to CreateProperties (20101114032118)
+  [4;35;1mSQL (94.7ms)[0m   [0mCREATE TABLE `properties` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `street_name` varchar(255), `street_number` int(11), `street_type` varchar(255), `suburb` varchar(255), `state` varchar(255), `postcode` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101114032118')[0m
+Migrating to CreateUsers (20101114060244)
+  [4;35;1mSQL (95.6ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) NOT NULL, `email` varchar(255) NOT NULL, `crypted_password` varchar(255) NOT NULL, `persistence_token` varchar(255) NOT NULL, `login_count` int(11) DEFAULT 0 NOT NULL, `last_request_at` datetime, `current_login_at` datetime, `last_login_at` datetime, `current_login_ip` varchar(255), `last_login_ip` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101114060244')[0m
+Migrating to CreateListings (20101122103711)
+  [4;35;1mSQL (87.4ms)[0m   [0mCREATE TABLE `listings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `property_id` int(11), `price` int(11), `available_date_from` date, `available_date_to` date, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101122103711')[0m
+Migrating to ListingPropertyFkConstraint (20101122103746)
+  [4;35;1mSQL (88.6ms)[0m   [0malter table listings drop column property_id[0m
+  [4;36;1mSQL (88.9ms)[0m   [0;1malter table listings add column (property_id int(11) NOT NULL default 0)[0m
+  [4;35;1mSQL (89.9ms)[0m   [0malter table listings add constraint `fk_listing_to_property` foreign key (property_id) references properties(id)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101122103746')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW FIELDS FROM `listings`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `listings`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW KEYS FROM `listings`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `properties`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mdescribe `properties`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `properties`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `sessions`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `sessions`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `sessions`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mProperty Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `properties`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProperty Create (0.3ms)[0m   [0mINSERT INTO `properties` (`created_at`, `postcode`, `updated_at`, `street_type`, `suburb`, `street_number`, `street_name`, `state`) VALUES('2010-11-22 10:49:50', NULL, '2010-11-22 10:49:50', NULL, NULL, NULL, NULL, NULL)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mProperty Create (0.2ms)[0m   [0;1mINSERT INTO `properties` (`created_at`, `postcode`, `updated_at`, `street_type`, `suburb`, `street_number`, `street_name`, `state`) VALUES('2010-11-22 10:49:55', NULL, '2010-11-22 10:49:55', NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mListing Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `listings`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mListing Create (0.0ms)[0m   [0;1mMysql::Error: Cannot add or update a child row: a foreign key constraint fails (`sharehouse_dev`.`listings`, CONSTRAINT `fk_listing_to_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`)): INSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 10:50:11', NULL, '2010-11-22 10:50:11', 0, NULL)[0m
+  [4;35;1mSQL (22.0ms)[0m   [0mROLLBACK[0m
+WARNING: Can't mass-assign these protected attributes: property
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mListing Create (0.0ms)[0m   [0mMysql::Error: Cannot add or update a child row: a foreign key constraint fails (`sharehouse_dev`.`listings`, CONSTRAINT `fk_listing_to_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`)): INSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 10:50:24', NULL, '2010-11-22 10:50:24', 0, NULL)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mListing Create (0.2ms)[0m   [0;1mINSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 10:50:43', NULL, '2010-11-22 10:50:43', 2, NULL)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProperty Create (0.2ms)[0m   [0mINSERT INTO `properties` (`created_at`, `postcode`, `updated_at`, `street_type`, `suburb`, `street_number`, `street_name`, `state`) VALUES('2010-11-22 10:50:49', NULL, '2010-11-22 10:50:49', NULL, NULL, NULL, NULL, NULL)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+WARNING: Can't mass-assign these protected attributes: property
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mListing Create (0.0ms)[0m   [0;1mMysql::Error: Cannot add or update a child row: a foreign key constraint fails (`sharehouse_dev`.`listings`, CONSTRAINT `fk_listing_to_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`)): INSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 10:51:35', NULL, '2010-11-22 10:51:35', 0, NULL)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mProperty Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `properties`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProperty Create (0.2ms)[0m   [0mINSERT INTO `properties` (`created_at`, `postcode`, `updated_at`, `street_type`, `suburb`, `street_number`, `street_name`, `state`) VALUES('2010-11-22 10:51:41', NULL, '2010-11-22 10:51:41', NULL, NULL, NULL, NULL, NULL)[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mListing Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `listings`[0m
+WARNING: Can't mass-assign these protected attributes: property
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mListing Create (0.0ms)[0m   [0mMysql::Error: Cannot add or update a child row: a foreign key constraint fails (`sharehouse_dev`.`listings`, CONSTRAINT `fk_listing_to_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`)): INSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 10:51:43', NULL, '2010-11-22 10:51:43', 0, NULL)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+WARNING: Can't mass-assign these protected attributes: property
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mListing Create (0.0ms)[0m   [0;1mMysql::Error: Cannot add or update a child row: a foreign key constraint fails (`sharehouse_dev`.`listings`, CONSTRAINT `fk_listing_to_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`)): INSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 10:51:56', NULL, '2010-11-22 10:51:56', 0, NULL)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProperty Create (0.2ms)[0m   [0mINSERT INTO `properties` (`created_at`, `postcode`, `updated_at`, `street_type`, `suburb`, `street_number`, `street_name`, `state`) VALUES('2010-11-22 10:52:01', NULL, '2010-11-22 10:52:01', NULL, NULL, NULL, NULL, NULL)[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCOMMIT[0m
+WARNING: Can't mass-assign these protected attributes: property
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mListing Create (0.0ms)[0m   [0;1mMysql::Error: Cannot add or update a child row: a foreign key constraint fails (`sharehouse_dev`.`listings`, CONSTRAINT `fk_listing_to_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`)): INSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 10:52:07', NULL, '2010-11-22 10:52:07', 0, NULL)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mListing Create (0.2ms)[0m   [0mINSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 10:52:11', NULL, '2010-11-22 10:52:11', 5, NULL)[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mProperty Load (0.4ms)[0m   [0mSELECT * FROM `properties` WHERE (`properties`.`id` = 5) [0m
+  [4;36;1mListing Load (0.4ms)[0m   [0;1mSELECT * FROM `listings` WHERE (`listings`.property_id = 5) [0m
+  [4;35;1mProperty Load (0.0ms)[0m   [0mMysql::Error: Unknown column 'properties.listing_id' in 'where clause': SELECT * FROM `properties` WHERE (`properties`.listing_id = 8) LIMIT 1[0m
+  [4;36;1mProperty Load (0.0ms)[0m   [0;1mMysql::Error: Unknown column 'properties.listing_id' in 'where clause': SELECT * FROM `properties` WHERE (`properties`.listing_id = 8) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mProperty Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `properties`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProperty Create (0.2ms)[0m   [0mINSERT INTO `properties` (`created_at`, `postcode`, `updated_at`, `street_type`, `suburb`, `street_number`, `street_name`, `state`) VALUES('2010-11-22 10:53:49', NULL, '2010-11-22 10:53:49', NULL, NULL, NULL, NULL, NULL)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mListing Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `listings`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mListing Create (0.2ms)[0m   [0mINSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 10:53:53', NULL, '2010-11-22 10:53:53', 6, NULL)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mProperty Load (0.4ms)[0m   [0mSELECT * FROM `properties` WHERE (`properties`.`id` = 6) [0m
+WARNING: Can't mass-assign these protected attributes: property
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mListing Create (0.0ms)[0m   [0mMysql::Error: Cannot add or update a child row: a foreign key constraint fails (`sharehouse_dev`.`listings`, CONSTRAINT `fk_listing_to_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`)): INSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 10:54:03', NULL, '2010-11-22 10:54:03', 0, NULL)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProperty Create (0.3ms)[0m   [0;1mINSERT INTO `properties` (`created_at`, `postcode`, `updated_at`, `street_type`, `suburb`, `street_number`, `street_name`, `state`) VALUES('2010-11-22 10:54:28', NULL, '2010-11-22 10:54:28', NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+WARNING: Can't mass-assign these protected attributes: property
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mListing Create (0.0ms)[0m   [0mMysql::Error: Cannot add or update a child row: a foreign key constraint fails (`sharehouse_dev`.`listings`, CONSTRAINT `fk_listing_to_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`)): INSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 10:54:31', NULL, '2010-11-22 10:54:31', 0, NULL)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mListing Load (0.4ms)[0m   [0mSELECT * FROM `listings` WHERE (`listings`.property_id = 7) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mListing Create (0.3ms)[0m   [0mINSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 10:55:33', NULL, '2010-11-22 10:55:33', 7, NULL)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mListing Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `listings`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mListing Create (0.0ms)[0m   [0mMysql::Error: Cannot add or update a child row: a foreign key constraint fails (`sharehouse_dev`.`listings`, CONSTRAINT `fk_listing_to_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`)): INSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 10:59:38', NULL, '2010-11-22 10:59:38', 0, NULL)[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mProperty Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `properties`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProperty Create (0.2ms)[0m   [0mINSERT INTO `properties` (`created_at`, `postcode`, `updated_at`, `street_type`, `suburb`, `street_number`, `street_name`, `state`) VALUES('2010-11-22 11:02:15', '3121', '2010-11-22 11:02:15', 'St', 'West Footscray', NULL, 'Smith', 'Vic')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mListing Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `listings`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mListing Create (0.0ms)[0m   [0mMysql::Error: Cannot add or update a child row: a foreign key constraint fails (`sharehouse_dev`.`listings`, CONSTRAINT `fk_listing_to_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`)): INSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 11:02:29', NULL, '2010-11-22 11:02:29', 0, NULL)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mListing Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `listings`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mListing Create (0.0ms)[0m   [0mMysql::Error: Cannot add or update a child row: a foreign key constraint fails (`sharehouse_dev`.`listings`, CONSTRAINT `fk_listing_to_property` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`)): INSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 11:03:04', NULL, '2010-11-22 11:03:04', 79473, NULL)[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mListing Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `listings`[0m
+  [4;36;1mProperty Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `properties`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProperty Create (0.3ms)[0m   [0;1mINSERT INTO `properties` (`created_at`, `postcode`, `updated_at`, `street_type`, `suburb`, `street_number`, `street_name`, `state`) VALUES('2010-11-22 11:04:33', '3121', '2010-11-22 11:04:33', 'St', 'West Footscray', NULL, 'Smith', 'Vic')[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mListing Create (0.2ms)[0m   [0mINSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 11:04:33', NULL, '2010-11-22 11:04:33', 9, NULL)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mProperty Create (0.2ms)[0m   [0;1mINSERT INTO `properties` (`created_at`, `postcode`, `updated_at`, `street_type`, `suburb`, `street_number`, `street_name`, `state`) VALUES('2010-11-22 11:04:37', '3121', '2010-11-22 11:04:37', 'St', 'West Footscray', NULL, 'Smith', 'Vic')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mListing Create (0.2ms)[0m   [0mINSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 11:04:37', NULL, '2010-11-22 11:04:37', 10, NULL)[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mListing Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `listings`[0m
+  [4;36;1mProperty Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `properties`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mProperty Create (0.2ms)[0m   [0;1mINSERT INTO `properties` (`created_at`, `postcode`, `updated_at`, `street_type`, `suburb`, `street_number`, `street_name`, `state`) VALUES('2010-11-22 11:09:28', '3121', '2010-11-22 11:09:28', 'St', 'West Footscray', NULL, 'Emelie', 'Vic')[0m
+  [4;35;1mSQL (63.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mListing Create (0.3ms)[0m   [0mINSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 11:09:29', NULL, '2010-11-22 11:09:29', 11, NULL)[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListingsController#new (for 127.0.0.1 at 2010-11-22 22:31:58) [GET]
+  Parameters: {"action"=>"new", "controller"=>"listings"}
+  [4;35;1mListing Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `listings`[0m
+  [4;36;1mProperty Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `properties`[0m
+Rendering template within layouts/application
+Rendering listings/new
+
+ActionView::TemplateError (undefined method `semantic_form_for' for #<ActionView::Base:0x103439168>) on line #1 of app/views/listings/_form.html.haml:
+1: - semantic_form_for @listing do |f|
+2:   = f.error_messages
+3:   = f.inputs :price
+
+    app/views/listings/_form.html.haml:1:in `_run_haml_app47views47listings47_form46html46haml_locals_form_object'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (3.0.23) lib/haml/helpers.rb:90:in `non_haml'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/views/listings/new.html.haml:3:in `_run_haml_app47views47listings47new46html46haml'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.23) rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (122.4ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListingsController#new (for 127.0.0.1 at 2010-11-22 22:31:59) [GET]
+  Parameters: {"action"=>"new", "controller"=>"listings"}
+  [4;36;1mListing Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `listings`[0m
+  [4;35;1mProperty Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `properties`[0m
+Rendering template within layouts/application
+Rendering listings/new
+
+ActionView::TemplateError (undefined method `semantic_form_for' for #<ActionView::Base:0x10338c9e0>) on line #1 of app/views/listings/_form.html.haml:
+1: - semantic_form_for @listing do |f|
+2:   = f.error_messages
+3:   = f.inputs :price
+
+    app/views/listings/_form.html.haml:1:in `_run_haml_app47views47listings47_form46html46haml_locals_form_object'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (3.0.23) lib/haml/helpers.rb:90:in `non_haml'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/views/listings/new.html.haml:3:in `_run_haml_app47views47listings47new46html46haml'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.23) rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (127.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListingsController#new (for 127.0.0.1 at 2010-11-22 22:32:00) [GET]
+  Parameters: {"action"=>"new", "controller"=>"listings"}
+  [4;35;1mListing Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `listings`[0m
+  [4;36;1mProperty Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `properties`[0m
+Rendering template within layouts/application
+Rendering listings/new
+
+ActionView::TemplateError (undefined method `semantic_form_for' for #<ActionView::Base:0x1034fa5c0>) on line #1 of app/views/listings/_form.html.haml:
+1: - semantic_form_for @listing do |f|
+2:   = f.error_messages
+3:   = f.inputs :price
+
+    app/views/listings/_form.html.haml:1:in `_run_haml_app47views47listings47_form46html46haml_locals_form_object'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (3.0.23) lib/haml/helpers.rb:90:in `non_haml'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/views/listings/new.html.haml:3:in `_run_haml_app47views47listings47new46html46haml'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.23) rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (54.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListingsController#new (for 127.0.0.1 at 2010-11-22 22:32:00) [GET]
+  Parameters: {"action"=>"new", "controller"=>"listings"}
+  [4;36;1mListing Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `listings`[0m
+  [4;35;1mProperty Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `properties`[0m
+Rendering template within layouts/application
+Rendering listings/new
+
+ActionView::TemplateError (undefined method `semantic_form_for' for #<ActionView::Base:0x103600410>) on line #1 of app/views/listings/_form.html.haml:
+1: - semantic_form_for @listing do |f|
+2:   = f.error_messages
+3:   = f.inputs :price
+
+    app/views/listings/_form.html.haml:1:in `_run_haml_app47views47listings47_form46html46haml_locals_form_object'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (3.0.23) lib/haml/helpers.rb:90:in `non_haml'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/views/listings/new.html.haml:3:in `_run_haml_app47views47listings47new46html46haml'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.23) rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (54.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListingsController#new (for 127.0.0.1 at 2010-11-22 22:32:01) [GET]
+  Parameters: {"action"=>"new", "controller"=>"listings"}
+  [4;35;1mListing Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `listings`[0m
+  [4;36;1mProperty Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `properties`[0m
+Rendering template within layouts/application
+Rendering listings/new
+
+ActionView::TemplateError (undefined method `semantic_form_for' for #<ActionView::Base:0x102f7d0e8>) on line #1 of app/views/listings/_form.html.haml:
+1: - semantic_form_for @listing do |f|
+2:   = f.error_messages
+3:   = f.inputs :price
+
+    app/views/listings/_form.html.haml:1:in `_run_haml_app47views47listings47_form46html46haml_locals_form_object'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (3.0.23) lib/haml/helpers.rb:90:in `non_haml'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/views/listings/new.html.haml:3:in `_run_haml_app47views47listings47new46html46haml'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.23) rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (55.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListingsController#new (for 127.0.0.1 at 2010-11-22 22:32:01) [GET]
+  Parameters: {"action"=>"new", "controller"=>"listings"}
+  [4;36;1mListing Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `listings`[0m
+  [4;35;1mProperty Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `properties`[0m
+Rendering template within layouts/application
+Rendering listings/new
+
+ActionView::TemplateError (undefined method `semantic_form_for' for #<ActionView::Base:0x1030a3fd0>) on line #1 of app/views/listings/_form.html.haml:
+1: - semantic_form_for @listing do |f|
+2:   = f.error_messages
+3:   = f.inputs :price
+
+    app/views/listings/_form.html.haml:1:in `_run_haml_app47views47listings47_form46html46haml_locals_form_object'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (3.0.23) lib/haml/helpers.rb:90:in `non_haml'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/views/listings/new.html.haml:3:in `_run_haml_app47views47listings47new46html46haml'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.23) rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (57.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListingsController#new (for 127.0.0.1 at 2010-11-22 22:32:02) [GET]
+  Parameters: {"action"=>"new", "controller"=>"listings"}
+  [4;35;1mListing Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `listings`[0m
+  [4;36;1mProperty Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `properties`[0m
+Rendering template within layouts/application
+Rendering listings/new
+
+ActionView::TemplateError (undefined method `semantic_form_for' for #<ActionView::Base:0x1031fc2b0>) on line #1 of app/views/listings/_form.html.haml:
+1: - semantic_form_for @listing do |f|
+2:   = f.error_messages
+3:   = f.inputs :price
+
+    app/views/listings/_form.html.haml:1:in `_run_haml_app47views47listings47_form46html46haml_locals_form_object'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (3.0.23) lib/haml/helpers.rb:90:in `non_haml'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/views/listings/new.html.haml:3:in `_run_haml_app47views47listings47new46html46haml'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.23) rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (128.2ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListingsController#new (for 127.0.0.1 at 2010-11-22 22:32:02) [GET]
+  Parameters: {"action"=>"new", "controller"=>"listings"}
+  [4;36;1mListing Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `listings`[0m
+  [4;35;1mProperty Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `properties`[0m
+Rendering template within layouts/application
+Rendering listings/new
+
+ActionView::TemplateError (undefined method `semantic_form_for' for #<ActionView::Base:0x103361218>) on line #1 of app/views/listings/_form.html.haml:
+1: - semantic_form_for @listing do |f|
+2:   = f.error_messages
+3:   = f.inputs :price
+
+    app/views/listings/_form.html.haml:1:in `_run_haml_app47views47listings47_form46html46haml_locals_form_object'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (3.0.23) lib/haml/helpers.rb:90:in `non_haml'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/views/listings/new.html.haml:3:in `_run_haml_app47views47listings47new46html46haml'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.23) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.23) rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (126.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListingsController#new (for 127.0.0.1 at 2010-11-22 22:37:26) [GET]
+  Parameters: {"action"=>"new", "controller"=>"listings"}
+  [4;35;1mListing Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `listings`[0m
+  [4;36;1mProperty Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `properties`[0m
+Rendering template within layouts/application
+Rendering listings/new
+Rendered listings/_form (17.4ms)
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 61ms (View: 44, DB: 5) | 200 OK [http://localhost/listings/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ListingsController#index (for 127.0.0.1 at 2010-11-22 22:37:29) [GET]
+  Parameters: {"action"=>"index", "controller"=>"listings"}
+  [4;35;1mListing Load (0.4ms)[0m   [0mSELECT * FROM `listings` [0m
+Rendering template within layouts/application
+Rendering listings/index
+  [4;36;1mListing Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `listings`[0m
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 94ms (View: 86, DB: 3) | 200 OK [http://localhost/listings]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-22 22:37:32) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 22ms (View: 11, DB: 2) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-22 22:37:33) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (3.9ms)
+Completed in 27ms (View: 16, DB: 2) | 200 OK [http://localhost/users/new]

@@ -1,0 +1,11 @@
+one:
+  property_id: 1
+  price: 1
+  available_date_from: 2010-11-22
+  available_date_to: 2010-11-22
+
+two:
+  property_id: 1
+  price: 1
+  available_date_from: 2010-11-22
+  available_date_to: 2010-11-22

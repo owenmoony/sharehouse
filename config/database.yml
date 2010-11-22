@@ -4,3 +4,9 @@ development:
   username: root
   password:
   database: sharehouse_dev 
+test: 
+  adapter: mysql
+  host: localhost
+  username: root
+  password:
+  database: sharehouse_test

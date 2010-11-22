@@ -9,7 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101114060244) do
+ActiveRecord::Schema.define(:version => 20101122103746) do
+
+  create_table "listings", :force => true do |t|
+    t.integer  "price"
+    t.date     "available_date_from"
+    t.date     "available_date_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "property_id",         :default => 0, :null => false
+  end
+
+  add_index "listings", ["property_id"], :name => "fk_listing_to_property"
 
   create_table "properties", :force => true do |t|
     t.string   "street_name"

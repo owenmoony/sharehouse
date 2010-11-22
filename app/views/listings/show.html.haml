@@ -1,0 +1,19 @@
+- title "Listing"
+
+%p
+  %strong Property:
+  =h @listing.property_id
+%p
+  %strong Price:
+  =h @listing.price
+%p
+  %strong Available Date From:
+  =h @listing.available_date_from
+%p
+  %strong Available Date To:
+  =h @listing.available_date_to
+
+%p
+  = link_to "Edit", edit_listing_path(@listing)
+  |
+  = link_to "View All", listings_path

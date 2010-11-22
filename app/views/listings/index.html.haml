@@ -1,0 +1,18 @@
+- title "Listings"
+
+%table
+  %tr
+    %th Property
+    %th Price
+    %th Available date from
+    %th Available date to
+  - for listing in @listings
+    %tr
+      %td= h listing.property_id
+      %td= h listing.price
+      %td= h listing.available_date_from
+      %td= h listing.available_date_to
+      %td= link_to 'Show', listing
+      %td= link_to 'Edit', edit_listing_path(listing)
+
+%p= link_to "New Listing", new_listing_path
