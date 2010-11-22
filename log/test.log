@@ -636,3 +636,141 @@ Completed in 8ms (View: 7, DB: 1) | 200 OK [http://test.host/listings/298486374]
   [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
   [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
   [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProperty Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `properties`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mListing Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `listings`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mProperty Create (0.2ms)[0m   [0;1mINSERT INTO `properties` (`created_at`, `postcode`, `updated_at`, `street_type`, `suburb`, `street_number`, `street_name`, `state`) VALUES('2010-11-22 11:46:38', '3121', '2010-11-22 11:46:38', 'St', 'West Footscray', NULL, 'Tess', 'Vic')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mListing Create (0.2ms)[0m   [0mINSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 11:46:38', NULL, '2010-11-22 11:46:38', 980190970, NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `listings` WHERE (`listings`.property_id = 980190970) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing PropertiesController#index (for 0.0.0.0 at 2010-11-22 22:46:38) [GET]
+  Parameters: {"action"=>"index", "controller"=>"properties"}
+  [4;36;1mProperty Load (0.6ms)[0m   [0;1mSELECT * FROM `properties` [0m
+Rendering template within layouts/application
+Rendering properties/index
+Completed in 14ms (View: 11, DB: 11) | 200 OK [http://test.host/properties]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing ListingsController#index (for 0.0.0.0 at 2010-11-22 22:46:38) [GET]
+  Parameters: {"action"=>"index", "controller"=>"listings"}
+  [4;35;1mListing Load (0.3ms)[0m   [0mSELECT * FROM `listings` [0m
+Rendering template within layouts/application
+Rendering listings/index
+Completed in 77ms (View: 75, DB: 1) | 200 OK [http://test.host/listings]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing ListingsController#new (for 0.0.0.0 at 2010-11-22 22:46:38) [GET]
+  Parameters: {"action"=>"new", "controller"=>"listings"}
+Rendering template within layouts/application
+Rendering listings/new
+Rendered listings/_form (13.7ms)
+Completed in 17ms (View: 17, DB: 0) | 200 OK [http://test.host/listings/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mListing Load (0.2ms)[0m   [0;1mSELECT * FROM `listings` LIMIT 1[0m
+
+
+Processing ListingsController#edit (for 0.0.0.0 at 2010-11-22 22:46:38) [GET]
+  Parameters: {"action"=>"edit", "id"=>#<Listing id: 298486374, price: 1, available_date_from: "2010-11-22", available_date_to: "2010-11-22", created_at: "2010-11-22 11:46:38", updated_at: "2010-11-22 11:46:38", property_id: 1>, "controller"=>"listings"}
+  [4;35;1mListing Load (0.3ms)[0m   [0mSELECT * FROM `listings` WHERE (`listings`.`id` = 298486374) [0m
+Rendering template within layouts/application
+Rendering listings/edit
+Rendered listings/_form (9.1ms)
+Completed in 14ms (View: 13, DB: 1) | 200 OK [http://test.host/listings/298486374/edit]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mListing Load (0.2ms)[0m   [0;1mSELECT * FROM `listings` LIMIT 1[0m
+
+
+Processing ListingsController#show (for 0.0.0.0 at 2010-11-22 22:46:38) [GET]
+  Parameters: {"action"=>"show", "id"=>#<Listing id: 298486374, price: 1, available_date_from: "2010-11-22", available_date_to: "2010-11-22", created_at: "2010-11-22 11:46:38", updated_at: "2010-11-22 11:46:38", property_id: 1>, "controller"=>"listings"}
+  [4;35;1mListing Load (0.3ms)[0m   [0mSELECT * FROM `listings` WHERE (`listings`.`id` = 298486374) [0m
+Rendering template within layouts/application
+Rendering listings/show
+Completed in 6ms (View: 5, DB: 1) | 200 OK [http://test.host/listings/298486374]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mListing Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `listings`[0m
+  [4;36;1mProperty Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `properties`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mProperty Create (0.2ms)[0m   [0;1mINSERT INTO `properties` (`created_at`, `postcode`, `updated_at`, `street_type`, `suburb`, `street_number`, `street_name`, `state`) VALUES('2010-11-22 11:46:53', '3121', '2010-11-22 11:46:53', 'St', 'West Footscray', NULL, 'Marlen', 'Vic')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mListing Create (0.2ms)[0m   [0mINSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 11:46:53', NULL, '2010-11-22 11:46:53', 980190971, NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `listings` WHERE (`listings`.property_id = 980190971) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mListing Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `listings`[0m
+  [4;36;1mProperty Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `properties`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mProperty Create (0.2ms)[0m   [0;1mINSERT INTO `properties` (`created_at`, `postcode`, `updated_at`, `street_type`, `suburb`, `street_number`, `street_name`, `state`) VALUES('2010-11-22 11:47:49', '3121', '2010-11-22 11:47:49', 'St', 'West Footscray', NULL, 'Chelsea', 'Vic')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mListing Create (0.2ms)[0m   [0mINSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 11:47:49', NULL, '2010-11-22 11:47:49', 980190972, NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `listings` WHERE (`listings`.property_id = 980190972) [0m
+  [4;36;1mSQL (26.6ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProperty Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `properties`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mListing Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `listings`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mProperty Create (0.2ms)[0m   [0;1mINSERT INTO `properties` (`created_at`, `postcode`, `updated_at`, `street_type`, `suburb`, `street_number`, `street_name`, `state`) VALUES('2010-11-22 11:47:57', '3121', '2010-11-22 11:47:57', 'St', 'West Footscray', NULL, 'Kaia', 'Vic')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mListing Create (0.2ms)[0m   [0mINSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `available_date_from`) VALUES(200, '2010-11-22 11:47:57', NULL, '2010-11-22 11:47:57', 980190973, NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `listings` WHERE (`listings`.property_id = 980190973) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mROLLBACK[0m
