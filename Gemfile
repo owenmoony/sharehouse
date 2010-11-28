@@ -12,6 +12,7 @@ gem "authlogic"
 gem "rspec-rails", "1.3.2"
 gem "factory_girl"
 gem "faker"
+gem 'formtastic', '~> 1.1.0'
 
 group :development do
   # bundler requires these gems in development

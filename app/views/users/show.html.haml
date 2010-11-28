@@ -19,4 +19,8 @@
 %p
   %b Current login ip:
   = h @user.current_login_ip
-= link_to 'Edit', edit_account_path
+%p
+  %b Current number of listings:
+  = h @user.listings.size
+= #TODO Allow the user to be edited
+= link_to 'Edit', edit_user_path(@user)

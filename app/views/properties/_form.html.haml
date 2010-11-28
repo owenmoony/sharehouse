@@ -1,28 +1,4 @@
-- form_for @property do |f|
-  = f.error_messages
-  %p
-    = f.label :street_name
-    %br
-    = f.text_field :street_name
-  %p
-    = f.label :street_number
-    %br
-    = f.text_field :street_number
-  %p
-    = f.label :street_type
-    %br
-    = f.text_field :street_type
-  %p
-    = f.label :suburb
-    %br
-    = f.text_field :suburb
-  %p
-    = f.label :state
-    %br
-    = f.text_field :state
-  %p
-    = f.label :postcode
-    %br
-    = f.text_field :postcode
-  %p
-    = f.submit
+- semantic_form_for @property do |form|
+  = form.error_messages
+  = form.inputs
+  = form.buttons
