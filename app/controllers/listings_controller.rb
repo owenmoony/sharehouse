@@ -6,8 +6,7 @@ class ListingsController < ApplicationController
   
   def new
     @listing = Listing.new
-    @property = Property.new
-    @listing.property = @property
+    @listing.property = Property.new
   end
   
   def create
@@ -29,7 +28,7 @@ class ListingsController < ApplicationController
   
   def update
     @listing = Listing.find(params[:id])
-    if @listing.update_attributes(params[:listing])
+    if @listing.update_attributes(params[:listing]) && @listing.property.update_attributes(params[:listing][:property_attributes])
       flash[:notice] = "Successfully updated listing."
       redirect_to @listing
     else

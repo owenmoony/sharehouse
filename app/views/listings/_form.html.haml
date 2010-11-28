@@ -1,7 +1,9 @@
 - semantic_form_for @listing do |form|
   = form.error_messages
-  - form.inputs :name => "Listing" do
-    = form.input :price
-    = form.inputs :for => :property, :name => "Property"
+  - form.inputs :name => "Listing", :class => "inputs property" do
+    = form.inputs :price, :available_date_from, :available_date_to
+    - form.inputs :for => :property do |p|
+      =p.inputs
+
   = form.buttons
 

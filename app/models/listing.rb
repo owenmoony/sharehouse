@@ -3,4 +3,6 @@ class Listing < ActiveRecord::Base
   belongs_to :property
   belongs_to :user
   accepts_nested_attributes_for :property
+  validates_presence_of :price
+  validates_numericality_of :price
 end

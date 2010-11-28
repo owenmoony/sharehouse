@@ -34,4 +34,12 @@ describe ListingsController do
     @user.listings.should =~ [assigns(:listing)]
   end
 
+
+  it "should let me update the listings property" do
+    listing = Factory.create(:listing, :user => @user)
+    expected_street_name = "new name"
+    post :update, :id => listing.id, :listing=>{:price=>"200", :property_attributes=>{:street_name=>expected_street_name}}
+    assigns(:listing).property.street_name.should == expected_street_name
+  end
+
 end

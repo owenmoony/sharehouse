@@ -11,6 +11,7 @@ a
   img
     :border none
 
+
 .clear
   :clear both
   :height 0
@@ -65,3 +66,14 @@ a
     li
       :font-size 12px
       :list-style disc
+
+//@import scaffold.sass
+@import formtastic_base.sass
+//@import skintastic.sass
+
+body
+  :background #ccc
+
+form.formtastic
+  +formtastic(100%,20%,70%,4%,"right")
+
