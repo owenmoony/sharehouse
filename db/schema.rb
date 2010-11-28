@@ -9,7 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101128031017) do
+ActiveRecord::Schema.define(:version => 20101128060447) do
+
+  create_table "enquiries", :force => true do |t|
+    t.text     "comment"
+    t.integer  "listing_id",          :null => false
+    t.integer  "user_id",             :null => false
+    t.date     "available_date_from"
+    t.date     "available_date_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "enquiries", ["listing_id"], :name => "fk_enquiry_to_listing"
+  add_index "enquiries", ["user_id"], :name => "fk_enquiry_to_user"
 
   create_table "listings", :force => true do |t|
     t.integer  "price"

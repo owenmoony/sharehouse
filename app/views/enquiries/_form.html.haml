@@ -1,0 +1,9 @@
+- semantic_form_for @enquiry do |form|
+  = form.error_messages
+  - form.inputs do
+    =form.input :comment, :label => "Comment", :input_html => {:cols => 25, :rows => 5}
+    =form.input :available_date_from
+    =form.input :available_date_to
+    =form.input :listing_id, :as => :hidden, :value => @enquiry.listing.id
+  = form.buttons
+

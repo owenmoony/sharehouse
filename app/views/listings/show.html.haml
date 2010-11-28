@@ -14,6 +14,16 @@
   =h @listing.available_date_to
 
 %p
-  = link_to "Edit", edit_listing_path(@listing)
-  |
+  %strong Photo:
+  = image_tag @listing.property.photo.url(:small)
+%p
+  %strong Number of Applications:
+  = @listing.enquiries.count
+
+%p
+  - if current_user == @listing.user
+    = link_to "Edit", edit_listing_path(@listing)
+    |
   = link_to "View All", listings_path
+  |
+  = link_to "Apply", new_enquiries_path(:listing_id => @listing.id)

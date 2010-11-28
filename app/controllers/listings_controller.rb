@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
   before_filter :require_user, :only => [:new, :edit, :update]
   def index
-    @listings = Listing.all
+    @listings = Listing.find(:all, :include => :property)
   end
   
   def new

@@ -82,6 +82,12 @@
       </requirement>
       <source from="lib/tasks/rspec.rake" />
     </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="validation_reflection" version="0.3.8" bound="LATEST_IN_BRANCH" git="false" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">

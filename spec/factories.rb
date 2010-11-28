@@ -1,3 +1,8 @@
+Factory.define :enquiry do |e|
+  e.comment Faker::Lorem.sentences
+  e.association :listing, :factory => :listing
+end
+
 Factory.define :valid_user, :class => User do |u|
   u.login Faker::Internet.user_name
   u.email Faker::Internet.email
