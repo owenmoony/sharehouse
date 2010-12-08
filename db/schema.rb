@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101128060447) do
+ActiveRecord::Schema.define(:version => 20101128110053) do
 
   create_table "enquiries", :force => true do |t|
     t.text     "comment"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20101128060447) do
     t.date     "available_date_to"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "enquiry_type",        :null => false
   end
 
   add_index "enquiries", ["listing_id"], :name => "fk_enquiry_to_listing"

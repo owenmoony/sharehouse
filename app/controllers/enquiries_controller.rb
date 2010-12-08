@@ -8,7 +8,8 @@ class EnquiriesController < ApplicationController
   
   def create
     @enquiry = Enquiry.new(params[:enquiry])
-    @enquiry.listing = Listing.find(params[:enquiry][:listing_id].to_i)
+    @listing = Listing.find(params[:enquiry][:listing_id].to_i)
+    @enquiry.listing = @listing
     @enquiry.user = current_user
     if @enquiry.save
       flash[:notice] = "Successfully created Enquiry."

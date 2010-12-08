@@ -1,24 +1,37 @@
 - title "Listing"
 
 %p
-  %strong Property:
-  =h @listing.property_id
-%p
-  %strong Price:
-  =h @listing.price
-%p
-  %strong Available Date From:
-  =h @listing.available_date_from
-%p
-  %strong Available Date To:
-  =h @listing.available_date_to
+  = image_tag @listing.property.photo.url(:small)
 
 %p
-  %strong Photo:
-  = image_tag @listing.property.photo.url(:small)
+  %strong Price:
+  =h number_to_currency(@listing.price)
 %p
-  %strong Number of Applications:
-  = @listing.enquiries.count
+  %strong Available Dates
+  %p
+    From:
+    =h display_date(@listing.available_date_from)
+  %p
+    To:
+    =h display_date(@listing.available_date_to)
+
+- if current_user == @listing.user
+  %h3 Applications
+  %p
+    Number of Applications:
+    = @listing.enquiries.count
+  %table
+    %tr
+      %th Applicant
+      %th Type
+      %th Date
+      %th Comment
+    -@listing.enquiries.each do |e|
+      %tr
+        %td= h e.user.email
+        %td= h e.enquiry_type
+        %td= h display_date(e.created_at)
+        %td= h truncate(e.comment)
 
 %p
   - if current_user == @listing.user

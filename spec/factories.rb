@@ -1,11 +1,7 @@
-Factory.define :enquiry do |e|
-  e.comment Faker::Lorem.sentences
-  e.association :listing, :factory => :listing
-end
 
 Factory.define :valid_user, :class => User do |u|
-  u.login Faker::Internet.user_name
-  u.email Faker::Internet.email
+  u.sequence(:login) { Faker::Internet.user_name }
+  u.sequence(:email) { Faker::Internet.email }
   u.password "password"
   u.password_confirmation "password"
 end
@@ -21,5 +17,5 @@ end
 Factory.define :listing do |l|
   l.price 200
   l.association :property, :factory => :property
-  l.association :user, :factory => :valid_user
+  l.user Factory.create(:valid_user)
 end

@@ -6670,3 +6670,353 @@ WARNING: Can't mass-assign these protected attributes: property_attributes
 Redirected to http://test.host/listings/980191173
 Completed in 12ms (DB: 8) | 302 Found [http://test.host/listings/980191173?listing%5Bprice%5D=200&listing%5Bproperty_attributes%5D%5Bstreet_name%5D=new+name]
   [4;35;1mSQL (1.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSessions (20081106072031)
+Migrating to CreateProperties (20101114032118)
+Migrating to CreateUsers (20101114060244)
+Migrating to CreateListings (20101122103711)
+Migrating to ListingPropertyFkConstraint (20101122103746)
+Migrating to UserHasListings (20101128004554)
+Migrating to AddAttachmentsPhotoToProperty (20101128031017)
+Migrating to AddEnquires (20101128060447)
+Migrating to AddEnquiryType (20101128110053)
+  [4;36;1mSQL (61.1ms)[0m   [0;1malter table enquiries add column enquiry_type varchar(255) not null;[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101128110053')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `enquiries`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `enquiries`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `enquiries`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `listings`[0m
+  [4;35;1mSQL (3.7ms)[0m   [0mdescribe `listings`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `listings`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `properties`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `properties`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `properties`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `sessions`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `sessions`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW KEYS FROM `sessions`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (20.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'tyra_collier@ferrymonahan.co.uk') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'buster') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '7a75af6cdf9cc1fb6fbfba91ec50839aebad77c2b352d5e9dcdaa7465ddfa07b4ce0363f3ee8d86109769966ad6ca249073f5ee82f725576bf9888964aa90ee7') LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO `users` (`last_request_at`, `created_at`, `crypted_password`, `updated_at`, `current_login_ip`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES('2010-11-30 11:08:22', '2010-11-30 11:08:22', '0f55da604020e3c9fdd2d229e2003f5e4ea26291a8fe5851eeb70ebd394af77aa6c77b45761cc15e55304a9e544afd368067792b6770e5299ee96f5d1020641b', '2010-11-30 11:08:22', '0.0.0.0', '2010-11-30 11:08:22', '7a75af6cdf9cc1fb6fbfba91ec50839aebad77c2b352d5e9dcdaa7465ddfa07b4ce0363f3ee8d86109769966ad6ca249073f5ee82f725576bf9888964aa90ee7', 1, NULL, 'buster', NULL, 'tyra_collier@ferrymonahan.co.uk')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-11-30 11:08:22', `last_login_at` = '2010-11-30 11:08:22', `last_login_ip` = '0.0.0.0', `current_login_at` = '2010-11-30 11:08:22', `login_count` = 2, `last_request_at` = '2010-11-30 11:08:22' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProperty Create (0.3ms)[0m   [0mINSERT INTO `properties` (`created_at`, `photo_file_size`, `postcode`, `updated_at`, `photo_file_name`, `street_type`, `photo_content_type`, `suburb`, `photo_updated_at`, `street_number`, `street_name`, `state`) VALUES('2010-11-30 11:08:22', NULL, '3121', '2010-11-30 11:08:22', NULL, 'Center', NULL, 'East Aydenfort', NULL, NULL, '51355 Eli Trail', 'Vic')[0m
+[paperclip] Saving attachments.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'alf_runolfsson@tromp.ca') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'hallie.hodkiewicz') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '99b197be391ae780109f99649db93d2f4405a9335c4e0e2a8c01a70f40c58f7b2c0768b248dbcc5ee99e58dccb27f8e02c631a18fd037ab341c79d541d19c3a0') LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO `users` (`last_request_at`, `created_at`, `crypted_password`, `updated_at`, `current_login_ip`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES('2010-11-30 11:08:52', '2010-11-30 11:08:52', '0f55da604020e3c9fdd2d229e2003f5e4ea26291a8fe5851eeb70ebd394af77aa6c77b45761cc15e55304a9e544afd368067792b6770e5299ee96f5d1020641b', '2010-11-30 11:08:52', '0.0.0.0', '2010-11-30 11:08:52', '99b197be391ae780109f99649db93d2f4405a9335c4e0e2a8c01a70f40c58f7b2c0768b248dbcc5ee99e58dccb27f8e02c631a18fd037ab341c79d541d19c3a0', 1, NULL, 'hallie.hodkiewicz', NULL, 'alf_runolfsson@tromp.ca')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-11-30 11:08:52', `last_login_at` = '2010-11-30 11:08:52', `last_login_ip` = '0.0.0.0', `current_login_at` = '2010-11-30 11:08:52', `login_count` = 2, `last_request_at` = '2010-11-30 11:08:52' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProperty Create (0.2ms)[0m   [0mINSERT INTO `properties` (`created_at`, `photo_file_size`, `postcode`, `updated_at`, `photo_file_name`, `street_type`, `photo_content_type`, `suburb`, `photo_updated_at`, `street_number`, `street_name`, `state`) VALUES('2010-11-30 11:08:52', NULL, '3121', '2010-11-30 11:08:52', NULL, 'Turnpike', NULL, 'West Craigport', NULL, NULL, '198 Wiza Lodge', 'Vic')[0m
+[paperclip] Saving attachments.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'juliet@marquardt.ca') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'minnie') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '784caa5cb6574b727968f6d65d9bb48fb7ca6ab778f8004533596b9b0df6974f5005e89c222f5c5aa78dae108854f213c25bcd26e13f3f2423330d644002aebf') LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO `users` (`last_request_at`, `created_at`, `crypted_password`, `updated_at`, `current_login_ip`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES('2010-11-30 11:09:04', '2010-11-30 11:09:04', '0f55da604020e3c9fdd2d229e2003f5e4ea26291a8fe5851eeb70ebd394af77aa6c77b45761cc15e55304a9e544afd368067792b6770e5299ee96f5d1020641b', '2010-11-30 11:09:04', '0.0.0.0', '2010-11-30 11:09:04', '784caa5cb6574b727968f6d65d9bb48fb7ca6ab778f8004533596b9b0df6974f5005e89c222f5c5aa78dae108854f213c25bcd26e13f3f2423330d644002aebf', 1, NULL, 'minnie', NULL, 'juliet@marquardt.ca')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-11-30 11:09:04', `last_login_at` = '2010-11-30 11:09:04', `last_login_ip` = '0.0.0.0', `current_login_at` = '2010-11-30 11:09:04', `login_count` = 2, `last_request_at` = '2010-11-30 11:09:04' WHERE `id` = 3[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProperty Create (0.3ms)[0m   [0mINSERT INTO `properties` (`created_at`, `photo_file_size`, `postcode`, `updated_at`, `photo_file_name`, `street_type`, `photo_content_type`, `suburb`, `photo_updated_at`, `street_number`, `street_name`, `state`) VALUES('2010-11-30 11:09:04', NULL, '3121', '2010-11-30 11:09:04', NULL, 'Villages', NULL, 'Port Toby', NULL, NULL, '28674 Mckenzie Cove', 'Vic')[0m
+[paperclip] Saving attachments.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'shane@kilback.biz') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'jewel') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '0676eb85a3adb24311ed0da606c76d26c084520e31c4761ddd6d29eedf881390f75cd8979488099aed35655f611aee92e877b4c9e2a2a7d04395de52c3f3c240') LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO `users` (`last_request_at`, `created_at`, `crypted_password`, `updated_at`, `current_login_ip`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES('2010-11-30 11:09:27', '2010-11-30 11:09:27', '0f55da604020e3c9fdd2d229e2003f5e4ea26291a8fe5851eeb70ebd394af77aa6c77b45761cc15e55304a9e544afd368067792b6770e5299ee96f5d1020641b', '2010-11-30 11:09:27', '0.0.0.0', '2010-11-30 11:09:27', '0676eb85a3adb24311ed0da606c76d26c084520e31c4761ddd6d29eedf881390f75cd8979488099aed35655f611aee92e877b4c9e2a2a7d04395de52c3f3c240', 1, NULL, 'jewel', NULL, 'shane@kilback.biz')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-11-30 11:09:27', `last_login_at` = '2010-11-30 11:09:27', `last_login_ip` = '0.0.0.0', `current_login_at` = '2010-11-30 11:09:27', `login_count` = 2, `last_request_at` = '2010-11-30 11:09:27' WHERE `id` = 4[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProperty Create (0.2ms)[0m   [0mINSERT INTO `properties` (`created_at`, `photo_file_size`, `postcode`, `updated_at`, `photo_file_name`, `street_type`, `photo_content_type`, `suburb`, `photo_updated_at`, `street_number`, `street_name`, `state`) VALUES('2010-11-30 11:09:27', NULL, '3121', '2010-11-30 11:09:27', NULL, 'Meadow', NULL, 'South Rebekahport', NULL, NULL, '848 Hills Tunnel', 'Vic')[0m
+[paperclip] Saving attachments.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mEnquiry Columns (65.8ms)[0m   [0mSHOW FIELDS FROM `enquiries`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `enquiries` [0m
+
+
+Processing EnquiriesController#create (for 0.0.0.0 at 2010-11-30 22:09:27) [POST]
+  Parameters: {"action"=>"create", "enquiry"=>{"enquiry_type"=>:application, "comments"=>["Possimus deserunt fugiat libero minus consequatur ut et.", "Cupiditate est perferendis sit quibusdam aut accusamus.", "Facere dolores enim nihil."]}, "controller"=>"enquiries"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-11-30 11:09:27', `last_request_at` = '2010-11-30 11:09:27' WHERE `id` = 4[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'solon@rennergulgowski.biz') LIMIT 1[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'edgar') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '321cbcaa3d73d5d5123fd130d3833f20e483e91681f6c5514d60a1a10cb1d0bef06291141f4ede3da3b735a5a00ab4e878a6866408e294b6f39369be84bae11b') LIMIT 1[0m
+  [4;35;1mUser Create (0.8ms)[0m   [0mINSERT INTO `users` (`last_request_at`, `created_at`, `crypted_password`, `updated_at`, `current_login_ip`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES('2010-11-30 11:09:41', '2010-11-30 11:09:41', '0f55da604020e3c9fdd2d229e2003f5e4ea26291a8fe5851eeb70ebd394af77aa6c77b45761cc15e55304a9e544afd368067792b6770e5299ee96f5d1020641b', '2010-11-30 11:09:41', '0.0.0.0', '2010-11-30 11:09:41', '321cbcaa3d73d5d5123fd130d3833f20e483e91681f6c5514d60a1a10cb1d0bef06291141f4ede3da3b735a5a00ab4e878a6866408e294b6f39369be84bae11b', 1, NULL, 'edgar', NULL, 'solon@rennergulgowski.biz')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-11-30 11:09:41', `last_login_at` = '2010-11-30 11:09:41', `last_login_ip` = '0.0.0.0', `current_login_at` = '2010-11-30 11:09:41', `login_count` = 2, `last_request_at` = '2010-11-30 11:09:41' WHERE `id` = 5[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProperty Create (4.0ms)[0m   [0mINSERT INTO `properties` (`created_at`, `photo_file_size`, `postcode`, `updated_at`, `photo_file_name`, `street_type`, `photo_content_type`, `suburb`, `photo_updated_at`, `street_number`, `street_name`, `state`) VALUES('2010-11-30 11:09:41', NULL, '3121', '2010-11-30 11:09:41', NULL, 'Lake', NULL, 'South Everettbury', NULL, NULL, '02947 Kassulke Terrace', 'Vic')[0m
+[paperclip] Saving attachments.
+  [4;36;1mSQL (0.8ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mEnquiry Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `enquiries`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM `enquiries` [0m
+
+
+Processing EnquiriesController#create (for 0.0.0.0 at 2010-11-30 22:09:41) [POST]
+  Parameters: {"action"=>"create", "enquiry"=>{"comment"=>["Laborum aliquam architecto incidunt.", "Dolor id blanditiis facilis asperiores mollitia et.", "Rerum nihil omnis fugit distinctio maiores ullam nemo dolores."], "enquiry_type"=>:application}, "controller"=>"enquiries"}
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 5) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-11-30 11:09:41', `last_request_at` = '2010-11-30 11:09:41' WHERE `id` = 5[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mListing Load (0.4ms)[0m   [0mSELECT * FROM `listings` WHERE (`listings`.`id` = 0) [0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'koby@hauck.info') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'walker_quigley') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '821d2db4dce97f04196edcfa0af54bc45a7d3d0b03219ab72f0e75da7f39763444fe02b3cc0a00a3127406746e7340550666b9a360564a18be305f5855121cb0') LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO `users` (`last_request_at`, `created_at`, `crypted_password`, `updated_at`, `current_login_ip`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES('2010-11-30 11:10:33', '2010-11-30 11:10:33', '0f55da604020e3c9fdd2d229e2003f5e4ea26291a8fe5851eeb70ebd394af77aa6c77b45761cc15e55304a9e544afd368067792b6770e5299ee96f5d1020641b', '2010-11-30 11:10:33', '0.0.0.0', '2010-11-30 11:10:33', '821d2db4dce97f04196edcfa0af54bc45a7d3d0b03219ab72f0e75da7f39763444fe02b3cc0a00a3127406746e7340550666b9a360564a18be305f5855121cb0', 1, NULL, 'walker_quigley', NULL, 'koby@hauck.info')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-11-30 11:10:33', `last_login_at` = '2010-11-30 11:10:33', `last_login_ip` = '0.0.0.0', `current_login_at` = '2010-11-30 11:10:33', `login_count` = 2, `last_request_at` = '2010-11-30 11:10:33' WHERE `id` = 6[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProperty Create (0.2ms)[0m   [0mINSERT INTO `properties` (`created_at`, `photo_file_size`, `postcode`, `updated_at`, `photo_file_name`, `street_type`, `photo_content_type`, `suburb`, `photo_updated_at`, `street_number`, `street_name`, `state`) VALUES('2010-11-30 11:10:33', NULL, '3121', '2010-11-30 11:10:33', NULL, 'Parkways', NULL, 'Lake Jana', NULL, NULL, '5024 Schmidt Estates', 'Vic')[0m
+[paperclip] Saving attachments.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mProperty Create (0.2ms)[0m   [0;1mINSERT INTO `properties` (`created_at`, `photo_file_size`, `postcode`, `updated_at`, `photo_file_name`, `street_type`, `photo_content_type`, `suburb`, `photo_updated_at`, `street_number`, `street_name`, `state`) VALUES('2010-11-30 11:10:33', NULL, '3121', '2010-11-30 11:10:33', NULL, 'Parkways', NULL, 'Lake Jana', NULL, NULL, '5024 Schmidt Estates', 'Vic')[0m
+[paperclip] Saving attachments.
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'koby@hauck.info') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'walker_quigley') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '4dfba4fc0c06826079f9175589f5bc20ea05a4645df3a1b3fe1465825d8e60337222b13c151076a5adce7e99de117cf1549591d5bb3c135844cbc8fe00b0d70f') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'ignacio.armstrong@heidenreichstark.us') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'london') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '96adcf3ba01100cd4b93236f7b3e6873112502fe0c12041209d2eea346af385ca58f2c8e9804a7416207e4e6729932300f507fe79e5784d8fd35b5f584c4dc86') LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO `users` (`last_request_at`, `created_at`, `crypted_password`, `updated_at`, `current_login_ip`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES('2010-11-30 11:10:43', '2010-11-30 11:10:43', '0f55da604020e3c9fdd2d229e2003f5e4ea26291a8fe5851eeb70ebd394af77aa6c77b45761cc15e55304a9e544afd368067792b6770e5299ee96f5d1020641b', '2010-11-30 11:10:43', '0.0.0.0', '2010-11-30 11:10:43', '96adcf3ba01100cd4b93236f7b3e6873112502fe0c12041209d2eea346af385ca58f2c8e9804a7416207e4e6729932300f507fe79e5784d8fd35b5f584c4dc86', 1, NULL, 'london', NULL, 'ignacio.armstrong@heidenreichstark.us')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-11-30 11:10:43', `last_login_at` = '2010-11-30 11:10:43', `last_login_ip` = '0.0.0.0', `current_login_at` = '2010-11-30 11:10:43', `login_count` = 2, `last_request_at` = '2010-11-30 11:10:43' WHERE `id` = 7[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProperty Create (0.3ms)[0m   [0mINSERT INTO `properties` (`created_at`, `photo_file_size`, `postcode`, `updated_at`, `photo_file_name`, `street_type`, `photo_content_type`, `suburb`, `photo_updated_at`, `street_number`, `street_name`, `state`) VALUES('2010-11-30 11:10:43', NULL, '3121', '2010-11-30 11:10:43', NULL, 'Landing', NULL, 'West Shaina', NULL, NULL, '217 Yost Meadow', 'Vic')[0m
+[paperclip] Saving attachments.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mProperty Create (0.2ms)[0m   [0;1mINSERT INTO `properties` (`created_at`, `photo_file_size`, `postcode`, `updated_at`, `photo_file_name`, `street_type`, `photo_content_type`, `suburb`, `photo_updated_at`, `street_number`, `street_name`, `state`) VALUES('2010-11-30 11:10:43', NULL, '3121', '2010-11-30 11:10:43', NULL, 'Landing', NULL, 'West Shaina', NULL, NULL, '217 Yost Meadow', 'Vic')[0m
+[paperclip] Saving attachments.
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'ignacio.armstrong@heidenreichstark.us') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'london') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '616907bc4b6d28045629fe98801505e305d4e27d13589a9fdd2a06571ca44de2db7610471e84b631724c7a80e2cf2215efc275d08fa856605c64f72bc8e3091b') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'samantha.hansen@becker.biz') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'eve_cremin') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '135213241d431a8bdb1edb8c06a98454012041c9829a5735a6001e58ca888791bb593ae1fba71f3b4e577370945e8103aeeca5abcac0444ff40b9904d6e343d1') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO `users` (`last_request_at`, `created_at`, `crypted_password`, `updated_at`, `current_login_ip`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES(NULL, '2010-11-30 11:11:34', '0f55da604020e3c9fdd2d229e2003f5e4ea26291a8fe5851eeb70ebd394af77aa6c77b45761cc15e55304a9e544afd368067792b6770e5299ee96f5d1020641b', '2010-11-30 11:11:34', NULL, NULL, '135213241d431a8bdb1edb8c06a98454012041c9829a5735a6001e58ca888791bb593ae1fba71f3b4e577370945e8103aeeca5abcac0444ff40b9904d6e343d1', 0, NULL, 'eve_cremin', NULL, 'samantha.hansen@becker.biz')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'catharine@ziemann.name') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'barry') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'ef553dc7c93e1cb8ca312f6fd79002f2fde034e763f654281782e75d653c14face76cab4c43d6b93aa39e1525b5e17e7611d353e0df958ece4dcf54c0c39f51d') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO `users` (`last_request_at`, `created_at`, `crypted_password`, `updated_at`, `current_login_ip`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES(NULL, '2010-11-30 11:12:05', '0f55da604020e3c9fdd2d229e2003f5e4ea26291a8fe5851eeb70ebd394af77aa6c77b45761cc15e55304a9e544afd368067792b6770e5299ee96f5d1020641b', '2010-11-30 11:12:05', NULL, NULL, 'ef553dc7c93e1cb8ca312f6fd79002f2fde034e763f654281782e75d653c14face76cab4c43d6b93aa39e1525b5e17e7611d353e0df958ece4dcf54c0c39f51d', 0, NULL, 'barry', NULL, 'catharine@ziemann.name')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'catharine@ziemann.name') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'barry') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'c322beccdeefec644014222452a7d985e04d0ea4de912577671bdd59a360b5402afcd5f056663c4d6f389255a3117e318fb042024a3a1370a5172308ca0989e0') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'hardy_kuvalis@powlowski.name') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'mustafa') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '430217c91fc37e1ef79f32d5cd1db7da1b9739c3227bebca00627239c317ac06d5a7a86ffdf6a3872a5a2f768d59a38449fbf1c8abd6010642892d5215f5ab79') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO `users` (`last_request_at`, `created_at`, `crypted_password`, `updated_at`, `current_login_ip`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES(NULL, '2010-11-30 11:12:28', '0f55da604020e3c9fdd2d229e2003f5e4ea26291a8fe5851eeb70ebd394af77aa6c77b45761cc15e55304a9e544afd368067792b6770e5299ee96f5d1020641b', '2010-11-30 11:12:28', NULL, NULL, '430217c91fc37e1ef79f32d5cd1db7da1b9739c3227bebca00627239c317ac06d5a7a86ffdf6a3872a5a2f768d59a38449fbf1c8abd6010642892d5215f5ab79', 0, NULL, 'mustafa', NULL, 'hardy_kuvalis@powlowski.name')[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'hardy_kuvalis@powlowski.name') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'mustafa') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '185e9798479b6c5726869e39d1e7847bd0d8a6a8a14cf78ddb15ea783a153666446482b7efbfc17648c33677fc0229719a1491ee26ae4f754b95372010b89ae2') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'frances@kihnpollich.us') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'jamal_klein') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '9c308aa121e5da95a45a9a53958ef7ed1dcb42b2b26d7dd8fbf10e1aaa8cfa8e1f716289240493d754e3526b6be51df286cc31ace1a287652d39ca6a97df3a0c') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO `users` (`last_request_at`, `created_at`, `crypted_password`, `updated_at`, `current_login_ip`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES(NULL, '2010-11-30 11:13:36', '0f55da604020e3c9fdd2d229e2003f5e4ea26291a8fe5851eeb70ebd394af77aa6c77b45761cc15e55304a9e544afd368067792b6770e5299ee96f5d1020641b', '2010-11-30 11:13:36', NULL, NULL, '9c308aa121e5da95a45a9a53958ef7ed1dcb42b2b26d7dd8fbf10e1aaa8cfa8e1f716289240493d754e3526b6be51df286cc31ace1a287652d39ca6a97df3a0c', 0, NULL, 'jamal_klein', NULL, 'frances@kihnpollich.us')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'frances@kihnpollich.us') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'jamal_klein') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '14d8a9c349fd80bc2f8ebeaf8f753f9936088a49a321513b5f1702800fc77d64d57d6de947f6d0b2c7eed68aeec3dc3176418d95c81c3c3229d04b517ce3ca76') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'hadley_ward@collins.co.uk') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'richie') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '8e766484847ea87005c73fe065fd1403ce0df101c63802391a9f2b5550ff66ecee2ee9d9ead0ab7637d252fc032239058dcd3c48acc5e0611ade01e8a2f17c17') LIMIT 1[0m
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO `users` (`last_request_at`, `created_at`, `crypted_password`, `updated_at`, `current_login_ip`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES(NULL, '2010-11-30 11:16:52', '0f55da604020e3c9fdd2d229e2003f5e4ea26291a8fe5851eeb70ebd394af77aa6c77b45761cc15e55304a9e544afd368067792b6770e5299ee96f5d1020641b', '2010-11-30 11:16:52', NULL, NULL, '8e766484847ea87005c73fe065fd1403ce0df101c63802391a9f2b5550ff66ecee2ee9d9ead0ab7637d252fc032239058dcd3c48acc5e0611ade01e8a2f17c17', 0, NULL, 'richie', NULL, 'hadley_ward@collins.co.uk')[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'hadley_ward@collins.co.uk') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'nakia.hayes') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '5b46cfb9f70b7eec667e91cb911644163720b1b7a386f90194694163dbdda819d494573561d4bedc776b37cb906d26f065281e0031ef7acb5831e931b043e448') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK TO SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'evert@romaguera.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'verner') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '5aa3c9da127ce41b7c6d19f43c5a80d13cb85dd2cfb0639e1a27330631dbacfb38bfc88dfa893956ab767fc1062eb8ca6b1bbf28270b9485e9d2296cf6834bb3') LIMIT 1[0m
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO `users` (`last_request_at`, `created_at`, `crypted_password`, `updated_at`, `current_login_ip`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES(NULL, '2010-11-30 11:17:24', '0f55da604020e3c9fdd2d229e2003f5e4ea26291a8fe5851eeb70ebd394af77aa6c77b45761cc15e55304a9e544afd368067792b6770e5299ee96f5d1020641b', '2010-11-30 11:17:24', NULL, NULL, '5aa3c9da127ce41b7c6d19f43c5a80d13cb85dd2cfb0639e1a27330631dbacfb38bfc88dfa893956ab767fc1062eb8ca6b1bbf28270b9485e9d2296cf6834bb3', 0, NULL, 'verner', NULL, 'evert@romaguera.com')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'francesca@emmerichwilkinson.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'mohammed') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'c6e99d841afe46178d0ba27634c50cb9d3a3a6c0002a4cce52661b4600e2c94bdb6d4ed1051fad382789a638b170fe2c0901e6654eebbfe4503f240d210af3e8') LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO `users` (`last_request_at`, `created_at`, `crypted_password`, `updated_at`, `current_login_ip`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES('2010-11-30 11:17:24', '2010-11-30 11:17:24', '0f55da604020e3c9fdd2d229e2003f5e4ea26291a8fe5851eeb70ebd394af77aa6c77b45761cc15e55304a9e544afd368067792b6770e5299ee96f5d1020641b', '2010-11-30 11:17:24', '0.0.0.0', '2010-11-30 11:17:24', 'c6e99d841afe46178d0ba27634c50cb9d3a3a6c0002a4cce52661b4600e2c94bdb6d4ed1051fad382789a638b170fe2c0901e6654eebbfe4503f240d210af3e8', 1, NULL, 'mohammed', NULL, 'francesca@emmerichwilkinson.com')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-11-30 11:17:24', `last_login_at` = '2010-11-30 11:17:24', `last_login_ip` = '0.0.0.0', `current_login_at` = '2010-11-30 11:17:24', `login_count` = 2, `last_request_at` = '2010-11-30 11:17:24' WHERE `id` = 14[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProperty Create (0.3ms)[0m   [0mINSERT INTO `properties` (`created_at`, `photo_file_size`, `postcode`, `updated_at`, `photo_file_name`, `street_type`, `photo_content_type`, `suburb`, `photo_updated_at`, `street_number`, `street_name`, `state`) VALUES('2010-11-30 11:17:24', NULL, '3121', '2010-11-30 11:17:24', NULL, 'Common', NULL, 'Johanfort', NULL, NULL, '005 Orie Path', 'Vic')[0m
+[paperclip] Saving attachments.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mProperty Create (0.3ms)[0m   [0;1mINSERT INTO `properties` (`created_at`, `photo_file_size`, `postcode`, `updated_at`, `photo_file_name`, `street_type`, `photo_content_type`, `suburb`, `photo_updated_at`, `street_number`, `street_name`, `state`) VALUES('2010-11-30 11:17:24', NULL, '3121', '2010-11-30 11:17:24', NULL, 'Common', NULL, 'Johanfort', NULL, NULL, '005 Orie Path', 'Vic')[0m
+[paperclip] Saving attachments.
+  [4;35;1mSQL (0.2ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+[paperclip] Saving attachments.
+  [4;35;1mListing Create (0.3ms)[0m   [0mINSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `user_id`, `available_date_from`) VALUES(200, '2010-11-30 11:17:24', NULL, '2010-11-30 11:17:24', 980190973, 13, NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mEnquiry Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `enquiries`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `enquiries` [0m
+
+
+Processing EnquiriesController#create (for 0.0.0.0 at 2010-11-30 22:17:24) [POST]
+  Parameters: {"action"=>"create", "enquiry"=>{"comment"=>["Voluptas aperiam animi nesciunt.", "Nam rerum ea nulla fuga.", "Suscipit voluptates dolor et reprehenderit."], "listning_id"=>980190963, "enquiry_type"=>:application}, "controller"=>"enquiries"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 14) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-11-30 11:17:24', `last_request_at` = '2010-11-30 11:17:24' WHERE `id` = 14[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (25.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'vicenta_flatley@waters.uk') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'breana') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '60b8d1d2f23e288385dc59a5fa1b1156e2baaebccedc1921f712013cf0b7067488b5d3666ead5c8dc29cf29fa9d26f2928536fe0911f8863ce56a01030aaf928') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO `users` (`last_request_at`, `created_at`, `crypted_password`, `updated_at`, `current_login_ip`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES(NULL, '2010-11-30 11:17:55', '0f55da604020e3c9fdd2d229e2003f5e4ea26291a8fe5851eeb70ebd394af77aa6c77b45761cc15e55304a9e544afd368067792b6770e5299ee96f5d1020641b', '2010-11-30 11:17:55', NULL, NULL, '60b8d1d2f23e288385dc59a5fa1b1156e2baaebccedc1921f712013cf0b7067488b5d3666ead5c8dc29cf29fa9d26f2928536fe0911f8863ce56a01030aaf928', 0, NULL, 'breana', NULL, 'vicenta_flatley@waters.uk')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'kristoffer_hilpert@walker.biz') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'susanna_wiegand') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '8d64f706d816555c507482c82fe7dd2d295a48714c2156d98023f9f679fb66f883ab548c58b331fcc79e80c4fc4560826131333d589e7f3a2a8865141a77f8ec') LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO `users` (`last_request_at`, `created_at`, `crypted_password`, `updated_at`, `current_login_ip`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES('2010-11-30 11:17:56', '2010-11-30 11:17:56', '0f55da604020e3c9fdd2d229e2003f5e4ea26291a8fe5851eeb70ebd394af77aa6c77b45761cc15e55304a9e544afd368067792b6770e5299ee96f5d1020641b', '2010-11-30 11:17:56', '0.0.0.0', '2010-11-30 11:17:56', '8d64f706d816555c507482c82fe7dd2d295a48714c2156d98023f9f679fb66f883ab548c58b331fcc79e80c4fc4560826131333d589e7f3a2a8865141a77f8ec', 1, NULL, 'susanna_wiegand', NULL, 'kristoffer_hilpert@walker.biz')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-11-30 11:17:56', `last_login_at` = '2010-11-30 11:17:56', `last_login_ip` = '0.0.0.0', `current_login_at` = '2010-11-30 11:17:56', `login_count` = 2, `last_request_at` = '2010-11-30 11:17:56' WHERE `id` = 16[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mProperty Create (0.3ms)[0m   [0mINSERT INTO `properties` (`created_at`, `photo_file_size`, `postcode`, `updated_at`, `photo_file_name`, `street_type`, `photo_content_type`, `suburb`, `photo_updated_at`, `street_number`, `street_name`, `state`) VALUES('2010-11-30 11:17:56', NULL, '3121', '2010-11-30 11:17:56', NULL, 'Plain', NULL, 'Madonnahaven', NULL, NULL, '21741 Rau Cape', 'Vic')[0m
+[paperclip] Saving attachments.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mProperty Create (0.3ms)[0m   [0;1mINSERT INTO `properties` (`created_at`, `photo_file_size`, `postcode`, `updated_at`, `photo_file_name`, `street_type`, `photo_content_type`, `suburb`, `photo_updated_at`, `street_number`, `street_name`, `state`) VALUES('2010-11-30 11:17:56', NULL, '3121', '2010-11-30 11:17:56', NULL, 'Plain', NULL, 'Madonnahaven', NULL, NULL, '21741 Rau Cape', 'Vic')[0m
+[paperclip] Saving attachments.
+  [4;35;1mSQL (0.2ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+[paperclip] Saving attachments.
+  [4;35;1mListing Create (0.4ms)[0m   [0mINSERT INTO `listings` (`price`, `created_at`, `available_date_to`, `updated_at`, `property_id`, `user_id`, `available_date_from`) VALUES(200, '2010-11-30 11:17:56', NULL, '2010-11-30 11:17:56', 980190975, 15, NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mEnquiry Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `enquiries`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM `enquiries` [0m
+
+
+Processing EnquiriesController#create (for 0.0.0.0 at 2010-11-30 22:17:56) [POST]
+  Parameters: {"action"=>"create", "enquiry"=>{"comment"=>["Nisi ab eaque vero.", "Iste maxime velit vero sit qui qui numquam sequi.", "Et totam non et suscipit eligendi porro."], "enquiry_type"=>:application, "listing_id"=>980190964}, "controller"=>"enquiries"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 16) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-11-30 11:17:56', `last_request_at` = '2010-11-30 11:17:56' WHERE `id` = 16[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mListing Load (0.3ms)[0m   [0mSELECT * FROM `listings` WHERE (`listings`.`id` = 980190964) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mEnquiry Create (0.3ms)[0m   [0mINSERT INTO `enquiries` (`comment`, `created_at`, `available_date_to`, `enquiry_type`, `updated_at`, `listing_id`, `user_id`, `available_date_from`) VALUES('--- \n- Nisi ab eaque vero.\n- Iste maxime velit vero sit qui qui numquam sequi.\n- Et totam non et suscipit eligendi porro.\n', '2010-11-30 11:17:56', NULL, '--- :application\n', '2010-11-30 11:17:56', 980190964, 16, NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/listings/980190964
+Completed in 13ms (DB: 47) | 302 Found [http://test.host/enquiries?enquiry%5Bcomment%5D%5B%5D=Nisi+ab+eaque+vero.&enquiry%5Bcomment%5D%5B%5D=Iste+maxime+velit+vero+sit+qui+qui+numquam+sequi.&enquiry%5Bcomment%5D%5B%5D=Et+totam+non+et+suscipit+eligendi+porro.&enquiry%5Benquiry_type%5D=application&enquiry%5Blisting_id%5D=980190964]
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `enquiries` [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mROLLBACK[0m

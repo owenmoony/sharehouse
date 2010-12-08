@@ -1,3 +1,4 @@
+- title "My Profile"
 %p
   %b Login:
   = h @user.login
@@ -24,3 +25,9 @@
   = h @user.listings.size
 = #TODO Allow the user to be edited
 = link_to 'Edit', edit_user_path(@user)
+
+%h3 My Listing
+- @user.listings.each do |listing|
+  %p
+    =link_to listing.property.address, listing_path(listing)
+    ="(#{listing.enquiries.count} applications)"
