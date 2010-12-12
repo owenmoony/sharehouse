@@ -6,6 +6,10 @@
 %p
   %strong Price:
   =h number_to_currency(@listing.price)
+  
+%p
+  %strong Address:
+  =h @listing.property.address
 %p
   %strong Available Dates
   %p
@@ -26,12 +30,16 @@
       %th Type
       %th Date
       %th Comment
-    -@listing.enquiries.each do |e|
+    - enquiries = @listing.enquiries.paginate(:page => params[:page], :per_page => 4)
+    - enquiries.each do |e|
       %tr
-        %td= h e.user.email
+        %td
+          = link_to h(e.user.login), e
         %td= h e.enquiry_type
         %td= h display_date(e.created_at)
         %td= h truncate(e.comment)
+        
+  .pagination= will_paginate(enquiries)
 
 %p
   - if current_user == @listing.user
@@ -39,4 +47,4 @@
     |
   = link_to "View All", listings_path
   |
-  = link_to "Apply", new_enquiries_path(:listing_id => @listing.id)
+  = link_to "Apply", new_enquiry_path(:listing_id => @listing.id)

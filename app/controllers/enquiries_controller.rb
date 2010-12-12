@@ -3,7 +3,10 @@ class EnquiriesController < ApplicationController
 
   def new
     @enquiry = Enquiry.new
-    @enquiry.listing = Listing.find(params[:listing_id])
+    listing = Listing.find(params[:listing_id])
+    @enquiry.listing = listing
+    @enquiry.available_date_from = listing.available_date_from
+    @enquiry.available_date_to = listing.available_date_to
   end
   
   def create
@@ -21,6 +24,20 @@ class EnquiriesController < ApplicationController
 
   def show
     @enquiry = Enquiry.find(params[:id])
+  end
+
+  def edit
+    @enquiry = Enquiry.find(params[:id])
+  end
+
+  def update
+    @enquiry = Enquiry.find(params[:id])
+    if @enquiry.update_attributes(params[:enquiry])
+      flash[:notice] = "Successfully update Enquiry"
+      redirect_to @enquiry.listing
+    else
+      render :action => "edit"
+    end
   end
 
   def index

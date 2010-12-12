@@ -1,4 +1,5 @@
 !primary_color = #4B7399
+!label_width = 200px
 
 body
   :background-color = !primary_color
@@ -72,16 +73,32 @@ table
   td
     padding: 10px
 
-//@import scaffold.sass
-@import formtastic_base.sass
-//@import skintastic.sass
-
 body
   :background #ccc
 
-form.formtastic
-  +formtastic(100%,20%,30%,4%,"right")
+.simple_form
+  label
+    :text-align right
+    :float left
+    :width !label_width
+    :padding-right 10px
 
-label
-  padding-right: 10px
+  input[type='text']
+    :float left
+    :width 200px
+
+  #listing_property_postcode
+    :width 50px
+
+  div
+    :clear left
+    :padding 25px 0 0 0
+
+  .hint
+    :color gray
+    :display block
+    :padding-left !label_width + 10
+    :padding-top 10px
+
+
 

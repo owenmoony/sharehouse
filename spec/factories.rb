@@ -6,6 +6,7 @@ Factory.define :valid_user, :class => User do |u|
   u.password_confirmation "password"
 end
 
+
 Factory.define :property do |p|
   p.street_name Faker::Address.street_address
   p.street_type Faker::Address.street_suffix
@@ -18,4 +19,11 @@ Factory.define :listing do |l|
   l.price 200
   l.association :property, :factory => :property
   l.user Factory.create(:valid_user)
+end
+
+Factory.define :enquiry do |e|
+  e.comment Faker::Lorem.sentences
+  e.association :listing, :factory => :listing
+  e.enquiry_type Enquiry::ENQUIRE_TYPES.first
+  e.user_id Factory.create(:valid_user)
 end

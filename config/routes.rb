@@ -1,8 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :listings
   map.resources :properties
+  map.resources :enquiries
   map.resource :user_session
-  map.resource :enquiries, :singular => 'enquiry'
 
   map.root :controller => "user_sessions", :action => "new" # optional, this just sets the root route
   map.resources :users

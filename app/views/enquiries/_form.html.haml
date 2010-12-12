@@ -1,15 +1,12 @@
-- semantic_form_for @enquiry do |form|
-  = form.error_messages
-  - form.inputs do
-    =form.input :enquiry_type, |
-                :as => :select, |
-                :collection => Enquiry::ENQUIRE_TYPES, |
-                :hint => "The type of application you are making"
-    =form.input :comment, :label => "Comment", :input_html => {:cols => 25, :rows => 5}
-    =form.input :available_date_from
-    =form.input :available_date_to
-    =form.input :listing_id, :as => :hidden, :value => @enquiry.listing.id
-  - form.buttons do
-    =form.commit_button :label => "Save"
-
-
+- simple_form_for @enquiry do |f|
+  = f.error_messages
+  =f.input :enquiry_type, |
+              :as => :select, |
+              :collection => Enquiry::ENQUIRE_TYPES, |
+              :hint => "The type of enquire you are making to the lister", |
+              :default => "application" |
+  =f.input :comment, :label => "Comment", :input_html => {:cols => 25, :rows => 5}
+  =f.input :available_date_from, :label => "Date From"
+  =f.input :available_date_to, :label => "To"
+  =f.input :listing_id, :as => :hidden, :value => @enquiry.listing.id
+  =f.button :submit

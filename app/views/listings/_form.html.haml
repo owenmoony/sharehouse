@@ -1,12 +1,13 @@
-- semantic_form_for @listing, :html => { :multipart => true } do |form|
-  = form.error_messages
-  - form.inputs :name => "Listing", :class => "inputs property" do
-    = form.inputs :price, :available_date_from, :available_date_to
-    - form.inputs :for => :property do |p|
-      =p.input :street_name, :label => "Street Address", :input_html => {:size => 40}
-      =p.input :suburb
-      =p.input :state
-      =p.input :postcode
-      =p.input :photo, :as => :file
-  = form.buttons
+- simple_form_for @listing, :html => { :multipart => true } do |f|
+  = f.error_messages
+  = f.input :price
+  = f.input :available_date_from
+  = f.input :available_date_to, :label => "To"
+  - f.simple_fields_for @listing.property do |p|
+    =p.input :street_name, :label => "Street Address", :required => false
+    =p.input :state, :required => false
+    =p.input :suburb, :required => false
+    =p.input :postcode
+    =p.input :photo, :as => :file
+  = f.button :submit
 

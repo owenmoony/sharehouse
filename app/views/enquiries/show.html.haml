@@ -1,0 +1,8 @@
+- title "Enquiry"
+
+%p
+  %label Username
+  = @enquiry.user.login
+
+  -if @enquiry.user == current_user
+    = link_to "Edit", edit_enquiry_path(@enquiry)

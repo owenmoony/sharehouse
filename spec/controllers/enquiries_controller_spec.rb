@@ -23,5 +23,18 @@ describe EnquiriesController do
     end
     assert_redirected_to listing_path(assigns(:listing))
   end
-  
+
+
+  it "should render the form" do
+    listing = Factory.create(:listing)
+    post :new, :listing_id => listing.id
+    should render_template("new")
+  end
+
+  it "should show the enquiry" do
+    enquiry = Factory.create(:enquiry)
+    get :show, :id => enquiry.id
+    assert_response success
+  end
+
 end

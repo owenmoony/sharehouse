@@ -30,12 +30,6 @@
     </requirement>
     <requirement>
       <requirement>
-        <dependency name="formtastic" version="1.1.0" bound="LATEST_IN_BRANCH" git="false" />
-      </requirement>
-      <source from="Gemfile" />
-    </requirement>
-    <requirement>
-      <requirement>
         <dependency name="haml" version="0" bound="GREATER_OR_EQUAL" git="false" />
       </requirement>
       <source from="Gemfile" />
@@ -78,6 +72,18 @@
     </requirement>
     <requirement>
       <requirement>
+        <dependency name="searchlogic" version="0" bound="GREATER_OR_EQUAL" git="false" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="simple_form" version="1.0.2" bound="EQUAL" git="false" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
         <dependency name="test-unit" version="1.2.3" bound="EQUAL" git="false" />
       </requirement>
       <source from="lib/tasks/rspec.rake" />
@@ -85,6 +91,12 @@
     <requirement>
       <requirement>
         <dependency name="validation_reflection" version="0.3.8" bound="LATEST_IN_BRANCH" git="false" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="will_paginate" version="0" bound="GREATER_OR_EQUAL" git="false" />
       </requirement>
       <source from="Gemfile" />
     </requirement>
