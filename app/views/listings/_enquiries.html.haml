@@ -1,0 +1,16 @@
+#enquiries
+  %table
+    %tr
+      %th Applicant
+      %th Type
+      %th Date
+      %th Comment
+    - for e in @enquiries
+      %tr
+        %td
+          = link_to h(e.user.login), e
+        %td= h e.enquiry_type
+        %td= h display_date(e.created_at)
+        %td= h truncate(e.comment)
+      
+  = will_paginate @enquiries, :class => 'pagination ajax'

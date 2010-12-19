@@ -25,5 +25,8 @@ Factory.define :enquiry do |e|
   e.comment Faker::Lorem.sentences
   e.association :listing, :factory => :listing
   e.enquiry_type Enquiry::ENQUIRE_TYPES.first
-  e.user_id Factory.create(:valid_user)
+  e.user Factory.create(:valid_user)
+  e.status Enquiry::STATUSES.first
+  e.available_date_from 1.weeks.from_now
+  e.available_date_to 2.weeks.from_now
 end

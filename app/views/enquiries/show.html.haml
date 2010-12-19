@@ -1,8 +1,24 @@
 - title "Enquiry"
 
 %p
-  %label Username
+  %label Username:
   = @enquiry.user.login
+%p
+  %label Dates:
+  = display_date(@enquiry.available_date_from)
+%p
+  %label To:
+  = display_date(@enquiry.available_date_to)
+%p
+  %label Comment:
+  = @enquiry.comment
+
+- if lister?
+  = link_to "Accept Application", listing_enquiry_approve_path(:enquiry_id => @enquiry.id, :listing_id => @enquiry.listing.id)
+
+
+%p
 
   -if @enquiry.user == current_user
     = link_to "Edit", edit_enquiry_path(@enquiry)
+

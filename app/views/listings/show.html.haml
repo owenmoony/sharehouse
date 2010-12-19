@@ -1,5 +1,8 @@
 - title "Listing"
 
+= javascript_include_tag("prototype.js")
+= javascript_include_tag("application.js")
+
 %p
   = image_tag @listing.property.photo.url(:small)
 
@@ -24,22 +27,8 @@
   %p
     Number of Applications:
     = @listing.enquiries.count
-  %table
-    %tr
-      %th Applicant
-      %th Type
-      %th Date
-      %th Comment
-    - enquiries = @listing.enquiries.paginate(:page => params[:page], :per_page => 4)
-    - enquiries.each do |e|
-      %tr
-        %td
-          = link_to h(e.user.login), e
-        %td= h e.enquiry_type
-        %td= h display_date(e.created_at)
-        %td= h truncate(e.comment)
-        
-  .pagination= will_paginate(enquiries)
+    
+    = render :partial => "enquiries"
 
 %p
   - if current_user == @listing.user
@@ -47,4 +36,4 @@
     |
   = link_to "View All", listings_path
   |
-  = link_to "Apply", new_enquiry_path(:listing_id => @listing.id)
+  = link_to "Apply", new_listing_enquiry_path(@listing)

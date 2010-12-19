@@ -34,7 +34,22 @@ describe EnquiriesController do
   it "should show the enquiry" do
     enquiry = Factory.create(:enquiry)
     get :show, :id => enquiry.id
-    assert_response success
+    assert_response :success
+  end
+
+  it "should show edit an existing enquiry" do
+    enquiry = Factory.create(:enquiry)
+    get :edit, :id => enquiry.id
+    assert_response :success
+  end
+
+  it "should show update an existing enquiry" do
+    enquiry = Factory.create(:enquiry)
+    enquiry.comment = "updated comment"
+    get :update, :id => enquiry.id, :enquiry => enquiry.attributes
+    enquiry = assigns(:enquiry)
+    assert_redirected_to listing_path(enquiry.listing)
+    enquiry.comment.should == "updated comment"
   end
 
 end

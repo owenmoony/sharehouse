@@ -42,4 +42,13 @@ describe ListingsController do
     assigns(:listing).property.street_name.should == expected_street_name
   end
 
+  it "should approve the enquiry" do
+    enquiry = Factory.create(:enquiry, :status => "new")
+    request.env["HTTP_REFERER"] = "Somwhere"
+    get :approve_enquiry, :enquiry_id => enquiry.id, :listing_id => enquiry.listing.id
+    assert_response 302
+    assigns(:enquiry).status.should == "approved"
+    flash[:notice].should_not be_nil
+  end
+
 end
