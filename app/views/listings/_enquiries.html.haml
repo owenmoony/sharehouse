@@ -5,6 +5,7 @@
       %th Type
       %th Date
       %th Comment
+      %th Status
     - for e in @enquiries
       %tr
         %td
@@ -12,5 +13,8 @@
         %td= h e.enquiry_type
         %td= h display_date(e.created_at)
         %td= h truncate(e.comment)
+        %td= h e.status
+        - if current_user == @listing.user
+          %td= link_to "Approve", listing_enquiry_approve_path(@listing.id, e.id)
       
   = will_paginate @enquiries, :class => 'pagination ajax'

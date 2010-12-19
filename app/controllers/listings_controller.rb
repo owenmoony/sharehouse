@@ -1,6 +1,8 @@
 class ListingsController < ApplicationController
 
   before_filter :require_user, :only => [:new, :edit, :update, :approve]
+  before_filter :must_be_listing_user, :except => [:new, :create, :show, :index]
+
 
   def index
     @listings = Listing.find(:all, :include => :property)
@@ -41,6 +43,7 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @enquiries = @listing.enquiries.paginate(:page => params[:page], :per_page => 4)
+    @my_application = @listing.enquiries.find_all{|e| e.user == current_user}.first
     respond_to do |format|
       format.html
       format.js {
@@ -56,7 +59,16 @@ class ListingsController < ApplicationController
     @enquiry.status = "approved"
     @enquiry.save!
     flash[:notice] = "Approved"
-    redirect_to :back
+    return redirect_to :back
+  end
+
+  def must_be_listing_user
+    id = params[:id] || params[:listing_id]
+    @listing = Listing.find(id)
+    if current_user != @listing.user
+      flash[:error] = "Only the listing user '#{@listing.user.login}' can do this action."
+      return redirect_to :back
+    end
   end
 
 end

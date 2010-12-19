@@ -22,6 +22,16 @@
     To:
     =h display_date(@listing.available_date_to)
 
+- if @my_application
+  .my_application{:style => "background-color: silver; padding: 10px"}
+    .title
+      %strong Your Application
+    Status:
+    = @my_application.status.titlecase
+    .comment= h truncate(@my_application.comment)
+    =link_to "edit", edit_listing_enquiry_path(@my_application)
+
+
 - if current_user == @listing.user
   %h3 Applications
   %p
