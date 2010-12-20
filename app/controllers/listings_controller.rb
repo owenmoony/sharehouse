@@ -16,9 +16,11 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(params[:listing])
     @property = Property.new(params[:listing][:property])
+    @photo = Property.new(params[:listing][:property][:photo])
     @listing.property = @property
     @listing.user = current_user
-    if @listing.save && @property.save
+    @property.photo = @photo
+    if @listing.save && @property.save && @photo.save
       flash[:notice] = "Successfully created listing."
       redirect_to @listing
     else
@@ -43,7 +45,7 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @enquiries = @listing.enquiries.paginate(:page => params[:page], :per_page => 4)
-    @my_application = @listing.enquiries.find_all{|e| e.user == current_user}.first
+    @my_application = @listing.enquiries.find_all{|e| e.user == current_user && e.enquiry_type == "application"}.first
     respond_to do |format|
       format.html
       format.js {
@@ -58,7 +60,15 @@ class ListingsController < ApplicationController
     @enquiry = Enquiry.find(params[:enquiry_id])
     @enquiry.status = "approved"
     @enquiry.save!
-    flash[:notice] = "Approved"
+    flash[:notice] = "The application for '#{@enquiry.user.login}' has been approved"
+    return redirect_to :back
+  end
+
+  def reject_enquiry
+    @enquiry = Enquiry.find(params[:enquiry_id])
+    @enquiry.status = "rejected"
+    @enquiry.save!
+    flash[:notice] = "The application for '#{@enquiry.user.login}' has been rejected"
     return redirect_to :back
   end
 

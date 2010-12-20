@@ -1,5 +1,5 @@
 #enquiries
-  %table
+  %table.enquiries
     %tr
       %th Applicant
       %th Type
@@ -7,7 +7,7 @@
       %th Comment
       %th Status
     - for e in @enquiries
-      %tr
+      %tr{:class => e.status}
         %td
           = link_to h(e.user.login), e
         %td= h e.enquiry_type
@@ -15,6 +15,9 @@
         %td= h truncate(e.comment)
         %td= h e.status
         - if current_user == @listing.user
-          %td= link_to "Approve", listing_enquiry_approve_path(@listing.id, e.id)
-      
+          - if e.status != "approved"
+            %td= link_to "approve", listing_enquiry_approve_path(@listing.id, e.id)
+          - if e.status != "rejected"
+            %td= link_to "reject", listing_enquiry_reject_path(@listing.id, e.id)
+
   = will_paginate @enquiries, :class => 'pagination ajax'

@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :listings do |listing|
     listing.resources :enquiries, :only => [:edit, :new] do |enquiry|
       enquiry.approve 'approve', :controller => 'listings', :action => 'approve_enquiry'
+      enquiry.reject 'reject', :controller => 'listings', :action => 'reject_enquiry'
     end
   end
   map.resources :properties

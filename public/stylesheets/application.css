@@ -88,3 +88,14 @@ body {
   display: block;
   padding-left: 210px;
   padding-top: 10px; }
+
+table.enquiries tr.approved {
+  background-color: #f0fff0; }
+table.enquiries tr.rejected {
+  background-color: #fff0f0; }
+
+.my_application {
+  background-color: #f0f0f0;
+  padding: 20px; }
+  .my_application .comment {
+    padding: 10px 0px; }

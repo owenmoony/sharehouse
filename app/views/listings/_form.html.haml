@@ -1,13 +1,14 @@
-- simple_form_for @listing, :html => { :multipart => true } do |f|
-  = f.error_messages
-  = f.input :price
-  = f.input :available_date_from
-  = f.input :available_date_to, :label => "To"
-  - f.simple_fields_for @listing.property do |p|
-    =p.input :street_name, :label => "Street Address", :required => false
-    =p.input :state, :required => false
-    =p.input :suburb, :required => false
-    =p.input :postcode
-    =p.input :photo, :as => :file
-  = f.button :submit
+- simple_form_for @listing, :html => { :multipart => true } do |listing|
+  = listing.error_messages
+  = listing.input :price
+  = listing.input :available_date_from
+  = listing.input :available_date_to, :label => "To"
+  - listing.simple_fields_for @listing.property do |property|
+    =property.input :street_name, :label => "Street Address", :required => false
+    =property.input :state, :required => false
+    =property.input :suburb, :required => false
+    =property.input :postcode
+    - property.simple_fields_for property do |photo|
+      =photo.input :photo, :as => :file
+  = listing.button :submit
 

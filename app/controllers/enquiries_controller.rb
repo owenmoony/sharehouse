@@ -1,10 +1,17 @@
 class EnquiriesController < ApplicationController
+
   before_filter :require_user
 
   def new
-    @enquiry = Enquiry.new
     listing = Listing.find(params[:listing_id])
+    existing_enquiry = Enquiry.find_existing_application(current_user.id, listing.id)
+    if existing_enquiry
+      flash[:notice] = "You have already applied, here is your application..."
+      return redirect_to edit_listing_enquiry_path(listing.id, existing_enquiry.id)
+    end
+    @enquiry = Enquiry.new
     @enquiry.listing = listing
+    @enquiry.user = current_user
     @enquiry.available_date_from = listing.available_date_from
     @enquiry.available_date_to = listing.available_date_to
   end
@@ -38,6 +45,11 @@ class EnquiriesController < ApplicationController
     else
       render :action => "edit"
     end
+  end
+
+  def destroy
+    Enquiry.delete(params[:id])
+    redirect_to :back
   end
 
   def index

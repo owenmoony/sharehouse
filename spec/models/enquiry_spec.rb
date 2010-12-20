@@ -8,4 +8,8 @@ describe Enquiry do
     e.listing.should_not be_nil
     e.comment.should_not be_empty
   end
+
+  it "should not create an enquiry when an application existing for this user" do
+    enquiry = Factory.create(:enquiry)
+  end
 end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101212095225) do
+ActiveRecord::Schema.define(:version => 20101220212626) do
 
   create_table "enquiries", :force => true do |t|
     t.text     "comment"
@@ -39,6 +39,18 @@ ActiveRecord::Schema.define(:version => 20101212095225) do
   add_index "listings", ["property_id"], :name => "fk_listing_to_property"
   add_index "listings", ["user_id"], :name => "fk_listing_to_user"
 
+  create_table "photos", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "property_id",        :default => 0, :null => false
+  end
+
+  add_index "photos", ["property_id"], :name => "fk_listing_to_property"
+
   create_table "properties", :force => true do |t|
     t.string   "street_name"
     t.integer  "street_number"
@@ -48,10 +60,6 @@ ActiveRecord::Schema.define(:version => 20101212095225) do
     t.string   "postcode"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
   end
 
   create_table "sessions", :force => true do |t|

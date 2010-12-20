@@ -23,13 +23,14 @@
     =h display_date(@listing.available_date_to)
 
 - if @my_application
-  .my_application{:style => "background-color: silver; padding: 10px"}
+  .my_application
     .title
-      %strong Your Application
+      %strong Your have applied for this listing
     Status:
     = @my_application.status.titlecase
     .comment= h truncate(@my_application.comment)
-    =link_to "edit", edit_listing_enquiry_path(@my_application)
+    =link_to "edit", edit_listing_enquiry_path(@listing.id, @my_application.id)
+    =link_to 'delete', @my_application, :confirm => 'Are you sure you want to delete this application?', :method => :delete
 
 
 - if current_user == @listing.user

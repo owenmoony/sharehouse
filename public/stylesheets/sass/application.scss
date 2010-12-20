@@ -1,0 +1,116 @@
+$primary_color: #4b7399;
+$label_width: 200px;
+$background_color: #f0f0f0;
+
+body {
+  background-color: $primary_color;
+  font: {
+    family: Verdana, Helvetica, Arial;
+    size: 14px; };
+}
+
+a {
+  color: blue;
+  img {
+    border: none; } }
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden; }
+
+#container {
+  width: 75%;
+  margin: 0 auto;
+  background: white;
+  padding: 20px 40px;
+  border: solid 1px black;
+  margin-top: 20px; }
+
+#flash_notice,
+#flash_error {
+  padding: 5px 8px;
+  margin: 10px 0; }
+
+#flash_notice {
+  background-color: #ccffcc;
+  border: solid 1px #66cc66; }
+
+#flash_error {
+  background-color: #ffcccc;
+  border: solid 1px #cc6666; }
+
+.fieldWithErrors {
+  display: inline; }
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid #cf0000;
+  padding: 0;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: $background_color;
+  h2 {
+    text-align: left;
+    padding: 5px 5px 5px 15px;
+    margin: 0;
+    font: {
+      weight: bold;
+      size: 12px; };
+    background-color: #cc0000;
+    color: white; }
+  p {
+    color: #333333;
+    margin-bottom: 0;
+    padding: 8px; }
+  ul {
+    margin: 2px 24px;
+    li {
+      font-size: 12px;
+      list-style: disc; } } }
+
+table {
+  background-color: $background_color;
+  td {
+    padding: 10px; } }
+
+body {
+  background: #cccccc; }
+
+.simple_form {
+  label {
+    text-align: right;
+    float: left;
+    width: $label_width;
+    padding-right: 10px; }
+  input[type='text'] {
+    float: left;
+    width: 200px; }
+  #listing_property_postcode {
+    width: 50px; }
+  div {
+    clear: left;
+    padding: 25px 0 0 0; }
+  .hint {
+    color: gray;
+    display: block;
+    padding-left: $label_width + 10;
+    padding-top: 10px; } }
+
+
+table.enquiries{
+  tr.approved{
+    background-color: #f0fff0;
+  }
+  tr.rejected{
+    background-color: #fff0f0;
+  }
+}
+
+.my_application{
+  background-color: $background_color;
+  padding: 20px;
+  .comment{
+    padding: 10px 0px;
+  }
+}
