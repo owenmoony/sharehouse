@@ -4,14 +4,15 @@
   - for listing in @listings
     %tr
       %td
-        .image= image_tag listing.property.photo.url(:small)
+        .image= image_tag listing.property.photo.url(:small) if listing.property.photo
       %td
         .address= h listing.property.address
         .price= "Price: #{h number_to_currency(listing.price)}"
         .from= "From: #{h display_date(listing.available_date_from)}"
         .to= "To : #{h display_date(listing.available_date_to)}"
       %td
-      %td= link_to 'Show', listing
-      %td= link_to 'Edit', edit_listing_path(listing)
+      %td= link_to 'show', listing
+      -if listing.user == current_user
+        %td= link_to 'edit', edit_listing_path(listing)
 
 %p= link_to "New Listing", new_listing_path

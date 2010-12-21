@@ -8,7 +8,7 @@
     =property.input :state, :required => false
     =property.input :suburb, :required => false
     =property.input :postcode
-    - property.simple_fields_for property do |photo|
-      =photo.input :photo, :as => :file
+    - property.simple_fields_for Photo.new do |p|
+      =p.input :photo, :as => :file
   = listing.button :submit
 

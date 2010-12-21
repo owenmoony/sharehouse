@@ -16,10 +16,10 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(params[:listing])
     @property = Property.new(params[:listing][:property])
-    @photo = Property.new(params[:listing][:property][:photo])
+    @photo = Photo.new(params[:listing][:property][:photo])
     @listing.property = @property
     @listing.user = current_user
-    @property.photo = @photo
+    @property.photos = [@photo]
     if @listing.save && @property.save && @photo.save
       flash[:notice] = "Successfully created listing."
       redirect_to @listing
@@ -34,7 +34,11 @@ class ListingsController < ApplicationController
 
   def update
     @listing = Listing.find(params[:id])
-    if @listing.update_attributes(params[:listing]) && @listing.property.update_attributes(params[:listing][:property])
+    photo = @listing.property.photos.first
+    photo_update_result = photo.update_attributes(params[:listing][:property][:photo]) if photo
+    if @listing.update_attributes(params[:listing]) &&
+            @listing.property.update_attributes(params[:listing][:property]) &&
+            photo_update_result
       flash[:notice] = "Successfully updated listing."
       redirect_to @listing
     else
