@@ -11,12 +11,12 @@ gem "will_paginate"
 
 group :development do
   gem "faker"
-  gem "factory_girl" #this fucker screws your migration
+  gem "factory_girl" #migration issue with this
   gem 'ruby-debug', '0.10.4'
 end
 
 group :test do
-  gem "factory_girl" #and this fucker
+  gem "factory_girl" #migration issue with this
   gem "faker"
   gem 'rspec', '1.3.1'
   gem "rspec-rails", "1.3.2"
